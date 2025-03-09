@@ -11,8 +11,10 @@ class ParentNode(HTMLNode):
         if self.children is None:
             raise ValueError("element must have children")
         
-        if isinstance(self, LeafNode):
-            return self.to_html()
+        children_html = ""
+        for child in self.children:
+            children_html += child.to_html()
+
+        return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"
         
-        return "".join(map(lambda node: f"<{node.tag}{node.props_to_html()}>{node.to_html()}</{node.tag}>", self.children))
         
