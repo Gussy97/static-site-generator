@@ -1,12 +1,8 @@
 from inline_markdown import *
 
 def main():
-   node = TextNode(
-            "This is text with a link to [bootdev](https://boot.dev) and another to [seqh](https://seqh.com.au)",
-            TextType.TEXT
-        )
-   
-   split_nodes_link([node]) 
+   text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+   print(text_to_textnodes(text))
 
 
 
